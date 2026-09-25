@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="نمونه مفهومی سایت خدمات مهندسی برق — طراحی اختصاصی، چندزبانه و واکنش‌گرا" />
+  <meta name="theme-color" content="#08110f" />
+  <title>VOLTARA — مهندسی برق، دقیق از نقشه تا اجرا</title>
+  <style>
+    :root{
+      --bg:#07100e; --bg2:#0a1512; --panel:#0d1916cc; --card:#0f1d19;
+      --ink:#f4f7f5; --muted:#95a49f; --line:#20302b; --accent:#b8ff4a;
+      --accent2:#6de7bb; --warning:#ffd662; --shadow:0 24px 70px rgba(0,0,0,.28);
+      --radius:26px; --mx:50%; --my:10%;
+    }
+    html[data-theme="light"]{
+      --bg:#f6f8f4; --bg2:#eef3ec; --panel:#ffffffd6; --card:#fff;
+      --ink:#0b1713; --muted:#607069; --line:#d8e1db; --accent:#4e8f00;
+      --accent2:#17795d; --warning:#9d6b00; --shadow:0 22px 60px rgba(27,48,39,.10);
+    }
+    *{box-sizing:border-box}
+    .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at var(--mx) var(--my), color-mix(in srgb,var(--accent) 9%,transparent) 0 5%,transparent 28%),
+      linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.75;overflow-x:hidden;transition:.35s background,.35s color}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000,transparent 78%)}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{position:sticky;top:14px;z-index:20;margin:14px auto 0;width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 14px 12px 18px;border:1px solid color-mix(in srgb,var(--line) 86%,transparent);background:var(--panel);backdrop-filter:blur(18px);border-radius:18px;box-shadow:0 12px 36px rgba(0,0,0,.08)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em}
+    .brand-mark{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 26%,transparent),transparent);box-shadow:inset 0 0 18px color-mix(in srgb,var(--accent) 8%,transparent)}
+    .brand-mark svg{width:20px}
+    .navlinks{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px}
+    .navlinks a{padding:8px 11px;border-radius:10px;transition:.25s}
+    .navlinks a:hover{color:var(--ink);background:color-mix(in srgb,var(--line) 40%,transparent)}
+    .actions{display:flex;gap:8px;align-items:center}
+    .icon-btn,.lang-btn{height:38px;border:1px solid var(--line);color:var(--ink);background:transparent;border-radius:11px;padding:0 12px;cursor:pointer;transition:.25s}
+    .icon-btn:hover,.lang-btn:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+    .cta-mini{height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;padding:0 14px;background:var(--accent);color:#0b160a;font-weight:800;font-size:14px;transition:.25s}
+    .cta-mini:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--accent) 22%,transparent)}
+    .hero{min-height:calc(100vh - 88px);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(430px,.92fr);align-items:center;gap:50px;padding:86px 0 70px;position:relative}
+    .hero-copy{position:relative;z-index:2}
+    .hero-copy::before{content:"01";position:absolute;top:-72px;right:-8px;font:900 116px/1 Arial,sans-serif;letter-spacing:-.08em;color:color-mix(in srgb,var(--accent) 4.5%,transparent);pointer-events:none;z-index:-1}
+    html[dir="ltr"] .hero-copy::before{right:auto;left:-8px}
+    .hero-copy::after{content:"";position:absolute;width:210px;height:1px;top:-18px;right:0;background:linear-gradient(90deg,var(--accent),transparent);opacity:.42}
+    html[dir="ltr"] .hero-copy::after{right:auto;left:0;background:linear-gradient(90deg,var(--accent),transparent)}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent2);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 12%,transparent)}
+    h1{font-size:clamp(48px,5vw,76px);line-height:1.02;letter-spacing:-.04em;margin:0;max-width:830px}
+    .accent-line{color:var(--accent);position:relative;white-space:nowrap}
+    .accent-line::after{content:"";position:absolute;right:0;left:0;height:8px;bottom:-3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);filter:blur(10px);opacity:.45}
+    .lead{font-size:18px;color:var(--muted);max-width:680px;margin:28px 0 34px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:12px;padding:14px 19px;border-radius:14px;border:1px solid var(--line);font-weight:800;transition:.25s}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#0a1409}
+    .btn.secondary{background:color-mix(in srgb,var(--panel) 78%,transparent)}
+    .btn:hover{transform:translateY(-3px)}
+    .trustline{margin-top:34px;display:flex;flex-wrap:wrap;gap:11px;color:var(--muted);font-size:13px}
+    .pill{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--panel) 72%,transparent)}
+    .pill i{width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+    .schematic{position:relative;min-height:570px;border:1px solid var(--line);border-radius:32px;background:linear-gradient(145deg,color-mix(in srgb,var(--card) 92%,transparent),color-mix(in srgb,var(--bg) 85%,transparent));box-shadow:var(--shadow);overflow:hidden;isolation:isolate}
+    .schematic::after{content:"";position:absolute;inset:-30%;z-index:-1;background:conic-gradient(from 160deg at 50% 50%,transparent 0 36%,color-mix(in srgb,var(--accent) 9%,transparent) 43%,transparent 50% 100%);animation:rotateGlow 14s linear infinite}
+    @keyframes rotateGlow{to{transform:rotate(360deg)}}
+    .schematic-corner{position:absolute;z-index:4;font:700 9px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.13em;color:color-mix(in srgb,var(--muted) 78%,transparent);text-transform:uppercase;direction:ltr}
+    .schematic-corner.a{top:58px;right:19px}.schematic-corner.b{bottom:100px;left:20px}
+    .schematic-chip{position:absolute;z-index:4;top:86px;left:19px;display:flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--panel) 78%,transparent);backdrop-filter:blur(10px);font-size:9px;color:var(--muted);letter-spacing:.1em;direction:ltr}
+    .schematic-chip i{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 10%,transparent)}
+    .schematic::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,color-mix(in srgb,var(--accent) 6%,transparent),transparent 65%);transform:translateX(-100%);animation:sweep 6s linear infinite}
+    @keyframes sweep{to{transform:translateX(120%)}}
+    .schematic-head{display:flex;justify-content:space-between;align-items:center;padding:19px 20px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.08em;direction:ltr}
+    .live{display:flex;align-items:center;gap:7px;color:var(--accent2);font-weight:800}.live i{width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:pulse 1.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.25;transform:scale(.75)}}
+    .circuit{position:absolute;inset:72px 30px 110px}
+    .circuit svg{width:100%;height:100%;overflow:visible}
+    .wire{fill:none;stroke:color-mix(in srgb,var(--muted) 44%,transparent);stroke-width:1.2;vector-effect:non-scaling-stroke}
+    .wire.hot{stroke:var(--accent);stroke-dasharray:6 10;animation:flow 1.6s linear infinite;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--accent) 55%,transparent))}@keyframes flow{to{stroke-dashoffset:-32}}
+    .node{fill:var(--card);stroke:var(--accent2);stroke-width:1.4}.node.accent{fill:var(--accent);stroke:var(--accent)}
+    .sch-label{fill:var(--muted);font:600 11px Tahoma,Arial,sans-serif;letter-spacing:.06em}
+    .metrics{position:absolute;left:18px;right:18px;bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;direction:ltr}
+    .metric{padding:13px;border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 80%,transparent);backdrop-filter:blur(10px);border-radius:14px}
+    .metric b{display:block;color:var(--ink);font-size:15px}.metric span{font-size:11px;color:var(--muted)}
+    .section{padding:105px 0}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;margin-bottom:44px;align-items:end}
+    .kicker{color:var(--accent2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h2{font-size:clamp(34px,4vw,58px);line-height:1.12;margin:10px 0 0;letter-spacing:-.035em}
+    .section-desc{color:var(--muted);max-width:620px;margin:0}
+    .services{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .service{grid-column:span 4;min-height:270px;padding:25px;border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--panel) 82%,transparent);position:relative;overflow:hidden;transition:.32s}
+    .service:nth-child(1),.service:nth-child(5){grid-column:span 5}.service:nth-child(2),.service:nth-child(4){grid-column:span 3}.service:nth-child(3),.service:nth-child(6){grid-column:span 4}
+    .service:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:var(--shadow)}
+    .service .num{font-size:12px;color:var(--muted);letter-spacing:.12em}.service h3{font-size:22px;margin:72px 0 12px}.service p{margin:0;color:var(--muted);font-size:14px}
+    .service .spark{position:absolute;top:20px;left:20px;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);display:grid;place-items:center;color:var(--accent)}
+    .service::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;left:-60px;bottom:-70px;background:color-mix(in srgb,var(--accent) 9%,transparent);filter:blur(2px)}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .step{padding:34px 24px;min-height:240px;border-left:1px solid var(--line);position:relative}.step:first-child{border-right:1px solid var(--line)}
+    .step .n{font-size:12px;color:var(--accent2);letter-spacing:.14em}.step h3{font-size:21px;margin:52px 0 10px}.step p{font-size:14px;color:var(--muted);margin:0}.step::before{content:"";position:absolute;top:-4px;right:24px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .industries{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+    .industry-main{min-height:500px;border:1px solid var(--line);border-radius:26px;padding:30px;background:linear-gradient(140deg,color-mix(in srgb,var(--accent2) 8%,var(--panel)),var(--panel));position:relative;overflow:hidden}
+    .industry-main .bigcode{position:absolute;bottom:-30px;left:22px;font-size:160px;line-height:1;font-weight:900;color:color-mix(in srgb,var(--accent) 9%,transparent);letter-spacing:-.08em;direction:ltr}
+    .industry-main h3{font-size:36px;max-width:560px;margin:110px 0 14px}.industry-main p{color:var(--muted);max-width:620px}
+    .industry-side{display:grid;grid-template-rows:repeat(3,1fr);gap:14px}.mini-card{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--panel);display:flex;align-items:end;justify-content:space-between;min-height:150px;transition:.25s}.mini-card:hover{transform:translateX(-4px);border-color:color-mix(in srgb,var(--accent) 42%,var(--line))}.mini-card span{color:var(--muted);font-size:13px}.mini-card b{font-size:20px}
+    .cms{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}.featurelist{display:grid;gap:12px;margin-top:26px}.feature{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}.check{width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);display:grid;place-items:center;font-weight:900}
+    .browser{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);transform:perspective(1000px) rotateY(4deg) rotateX(1deg);transition:.4s}.browser:hover{transform:none}.browser-top{height:48px;display:flex;align-items:center;gap:7px;padding:0 15px;border-bottom:1px solid var(--line);direction:ltr}.browser-top i{width:9px;height:9px;border-radius:50%;background:var(--line)}.browser-screen{padding:18px;display:grid;grid-template-columns:150px 1fr;gap:14px;min-height:360px;direction:ltr}.side{border:1px solid var(--line);border-radius:15px;padding:14px}.side div,.content-line{height:9px;background:color-mix(in srgb,var(--muted) 15%,transparent);border-radius:8px;margin-bottom:10px}.side div:nth-child(2){width:70%}.side div:nth-child(3){width:82%}.screen-main{border:1px solid var(--line);border-radius:15px;padding:18px}.screen-hero{height:94px;border-radius:13px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,transparent),color-mix(in srgb,var(--accent2) 10%,transparent));margin-bottom:17px;position:relative}.screen-hero::after{content:"SEO  •  CMS  •  BLOG";position:absolute;inset:0;display:grid;place-items:center;color:var(--accent);font-weight:800;letter-spacing:.14em;font-size:11px}.screen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.screen-box{height:86px;border:1px solid var(--line);border-radius:12px}.content-line:nth-of-type(2){width:78%}.content-line:nth-of-type(3){width:60%}
+    .blog{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.article{padding:22px;border:1px solid var(--line);border-radius:21px;background:var(--panel);transition:.25s}.article:hover{transform:translateY(-5px)}.article .tag{font-size:11px;color:var(--accent2);letter-spacing:.1em}.article h3{font-size:19px;line-height:1.5;margin:35px 0 12px}.article p{font-size:14px;color:var(--muted)}
+    .contact{padding-bottom:110px}.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;border:1px solid var(--line);border-radius:30px;padding:34px;background:linear-gradient(140deg,color-mix(in srgb,var(--accent) 5%,var(--panel)),var(--panel));box-shadow:var(--shadow)}.contact-box h2{font-size:clamp(34px,4vw,56px)}.contact-box p{color:var(--muted)}
+    .form{display:grid;gap:11px}.field{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:13px;background:color-mix(in srgb,var(--bg) 65%,transparent);color:var(--ink);outline:none;transition:.2s}.field:focus{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 8%,transparent)}textarea.field{min-height:126px;resize:vertical}.submit{border:0;border-radius:13px;padding:14px;background:var(--accent);color:#0a1409;font-weight:900;cursor:pointer}.form-note{font-size:11px;color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--muted);font-size:12px}.footerrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .reveal{opacity:1;transform:none}.reveal.reveal-ready{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.75,.2,1)}.reveal.reveal-ready.in{opacity:1;transform:none}
+    .demo-tag{position:fixed;left:16px;bottom:16px;z-index:10;padding:7px 10px;border-radius:10px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(12px);font-size:10px;color:var(--muted);letter-spacing:.08em;direction:ltr}
+    .signal-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:color-mix(in srgb,var(--panel) 45%,transparent);position:relative}
+    .signal-strip::before,.signal-strip::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}.signal-strip::before{right:0;background:linear-gradient(90deg,transparent,var(--bg))}.signal-strip::after{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+    .signal-track{display:flex;width:max-content;gap:34px;padding:13px 0;direction:ltr;animation:signalMove 25s linear infinite;color:var(--muted);font:700 10px/1 "Segoe UI",Arial,sans-serif;letter-spacing:.16em}
+    .signal-track span{display:flex;align-items:center;gap:34px;white-space:nowrap}.signal-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px color-mix(in srgb,var(--accent) 55%,transparent)}
+    @keyframes signalMove{to{transform:translateX(-50%)}}
+    .hero-spec{margin-top:18px;display:flex;align-items:center;gap:10px;color:color-mix(in srgb,var(--muted) 85%,transparent);font-size:10px;letter-spacing:.08em;direction:ltr}
+    .hero-spec::before{content:"";width:34px;height:1px;background:var(--accent)}
+    ::selection{background:color-mix(in srgb,var(--accent) 65%,transparent);color:var(--ink)}
+    @media (hover:hover) and (pointer:fine){.service:hover .spark{transform:rotate(-8deg) scale(1.07);box-shadow:0 0 28px color-mix(in srgb,var(--accent) 10%,transparent)}.spark{transition:.3s}.mini-card:hover{background:color-mix(in srgb,var(--accent) 4%,var(--panel))}}
+    @media (max-width:980px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:64px;gap:38px;min-height:auto}.schematic{min-height:500px}.section-head,.cms,.industries,.contact-box{grid-template-columns:1fr}.process{grid-template-columns:repeat(2,1fr)}.step{border-bottom:1px solid var(--line)}.service,.service:nth-child(n){grid-column:span 6}.blog{grid-template-columns:1fr 1fr}.browser{transform:none}.section-head{align-items:start}.hero-copy{max-width:800px}}
+    @media (max-width:640px){.wrap{width:min(100% - 28px,1180px)}.nav{top:8px;width:calc(100% - 16px);padding:10px 10px 10px 12px;border-radius:16px}.brand span:not(.brand-mark){display:none}.brand-mark{width:32px;height:32px}.cta-mini{display:none}.hero{padding:50px 0 52px;gap:30px}.hero h1{font-size:clamp(38px,11.5vw,50px);line-height:1.08;letter-spacing:-.035em}.accent-line{white-space:normal}.hero-copy::before{font-size:88px;top:-48px}.hero-copy::after{top:-10px;width:140px}.hero .lead{font-size:15px;line-height:1.9;margin:22px 0 26px}.hero-actions{display:grid;grid-template-columns:1fr;gap:9px}.hero-actions .btn{width:100%;justify-content:space-between;padding:13px 15px}.trustline{margin-top:24px;gap:8px}.pill{font-size:11px;padding:7px 9px}.hero-spec{font-size:9px;margin-top:15px}.schematic{min-height:390px;border-radius:24px}.schematic-head{font-size:9px;padding:15px 13px;letter-spacing:.04em}.schematic-head>span:first-child{max-width:52%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.circuit{inset:70px 8px 92px}.metrics{left:12px;right:12px;bottom:12px;grid-template-columns:1fr}.metric:nth-child(n+2){display:none}.schematic-corner.a{top:52px;right:13px}.schematic-corner.b{display:none}.schematic-chip{top:78px;left:13px;padding:6px 8px}.services{grid-template-columns:1fr}.service,.service:nth-child(n){grid-column:1;min-height:218px;padding:21px}.service h3{margin-top:58px}.process{grid-template-columns:1fr}.step{border-left:0!important;border-right:0!important;min-height:210px;padding:28px 21px}.step h3{margin-top:42px}.blog{grid-template-columns:1fr}.section{padding:72px 0}.section-head{gap:18px;margin-bottom:30px}.section-desc{font-size:14px}.browser-screen{grid-template-columns:1fr;min-height:310px;padding:12px}.side{display:none}.browser{border-radius:19px}.actions{gap:5px}.icon-btn,.lang-btn{padding:0 9px;min-width:38px}.demo-tag{display:none}.industry-main{min-height:360px;padding:23px;border-radius:22px}.industry-main h3{font-size:28px;line-height:1.4;margin-top:56px}.industry-main .bigcode{font-size:104px;bottom:-18px}.mini-card{min-height:126px;padding:18px}.mini-card b{font-size:17px}.contact{padding-bottom:76px}.contact-box{padding:22px;border-radius:24px;gap:28px}.field{font-size:16px}.footerrow{font-size:11px}.signal-track{gap:24px;padding:11px 0;animation-duration:20s}.signal-track span{gap:24px}.signal-strip::before,.signal-strip::after{width:42px}}
+    @media (max-width:390px){.wrap{width:calc(100% - 22px)}.nav{width:calc(100% - 12px)}.hero h1{font-size:36px}.schematic{min-height:365px}.schematic-chip{display:none}.industry-main h3{font-size:25px}.actions .icon-btn,.actions .lang-btn{height:36px}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.schematic::before,.schematic::after,.wire.hot,.live i,.signal-track{animation:none!important}.reveal.reveal-ready{opacity:1!important;transform:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="VOLTARA home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M13.6 2 5 13h6l-1 9 9-12h-6l.6-8Z" fill="currentColor"/></svg></span>
+      <span>VOLTARA / ENGINEERING</span>
+    </a>
+    <div class="navlinks">
+      <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
+      <a href="#process" data-fa="فرآیند" data-en="Process">فرآیند</a>
+      <a href="#industries" data-fa="حوزه‌ها" data-en="Industries">حوزه‌ها</a>
+      <a href="#insights" data-fa="دانش فنی" data-en="Insights">دانش فنی</a>
+    </div>
+    <div class="actions">
+      <button class="lang-btn" id="lang" aria-label="Change language">EN</button>
+      <button class="icon-btn" id="theme" aria-label="Toggle theme">◐</button>
+      <a href="#contact" class="cta-mini" data-fa="شروع همکاری ↗" data-en="Start a project ↗">شروع همکاری ↗</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="dot"></span><span data-fa="ELECTRICAL ENGINEERING · POWER · AUTOMATION" data-en="ELECTRICAL ENGINEERING · POWER · AUTOMATION">ELECTRICAL ENGINEERING · POWER · AUTOMATION</span></div>
+        <h1><span data-fa="مهندسی برق،" data-en="Electrical engineering,">مهندسی برق،</span><br><span class="accent-line" data-fa="دقیق از نقشه تا اجرا." data-en="from plan to power.">دقیق از نقشه تا اجرا.</span></h1>
+        <p class="lead" data-fa="طراحی و اجرای سیستم‌های برق ساختمان و صنعت، تابلو و توزیع، کنترل و اتوماسیون — با مستندات روشن، تصمیم‌های مهندسی‌شده و مسیری مشخص از نیاز تا تحویل." data-en="Design and implementation of electrical systems for buildings and industry, distribution, panels, control and automation — with clear documentation and an engineered path from requirement to delivery.">طراحی و اجرای سیستم‌های برق ساختمان و صنعت، تابلو و توزیع، کنترل و اتوماسیون — با مستندات روشن، تصمیم‌های مهندسی‌شده و مسیری مشخص از نیاز تا تحویل.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact"><span data-fa="درخواست بررسی پروژه" data-en="Discuss your project">درخواست بررسی پروژه</span><span>↗</span></a>
+          <a class="btn secondary" href="#services"><span data-fa="مشاهده خدمات" data-en="Explore services">مشاهده خدمات</span><span>↓</span></a>
+        </div>
+        <div class="trustline">
+          <span class="pill"><i></i><span data-fa="طراحی اختصاصی" data-en="Custom design">طراحی اختصاصی</span></span>
+          <span class="pill"><i></i><span data-fa="چندزبانه RTL / LTR" data-en="Multilingual RTL / LTR">چندزبانه RTL / LTR</span></span>
+          <span class="pill"><i></i><span data-fa="آماده سئو و محتوا" data-en="SEO & content ready">آماده سئو و محتوا</span></span>
+        </div>
+        <div class="hero-spec">ENGINEERED WEB EXPERIENCE / RESPONSIVE / WORDPRESS READY</div>
+      </div>
+
+      <div class="schematic reveal" aria-label="Animated electrical schematic">
+        <div class="schematic-corner a">LOAD MAP / REV.01</div>
+        <div class="schematic-corner b">230/400V · 50Hz</div>
+        <div class="schematic-chip"><i></i><span>SYSTEM NOMINAL</span></div>
+        <div class="schematic-head"><span>SYSTEM / DISTRIBUTION / 01</span><span class="live"><i></i> LIVE SCHEMATIC</span></div>
+        <div class="circuit">
+          <svg viewBox="0 0 600 430" role="img" aria-label="Power distribution schematic">
+            <path class="wire" d="M82 73H225V153H350V95H510"/>
+            <path class="wire hot" d="M82 73H225V153H350V95H510"/>
+            <path class="wire" d="M225 153V310H92"/>
+            <path class="wire hot" d="M225 153V310H92"/>
+            <path class="wire" d="M350 153V310H520"/>
+            <path class="wire" d="M350 153V230H455"/>
+            <circle class="node accent" cx="82" cy="73" r="8"/>
+            <rect class="node" x="207" y="135" width="36" height="36" rx="8"/>
+            <rect class="node" x="332" y="135" width="36" height="36" rx="8"/>
+            <circle class="node" cx="510" cy="95" r="8"/>
+            <circle class="node" cx="92" cy="310" r="8"/>
+            <circle class="node" cx="520" cy="310" r="8"/>
+            <circle class="node" cx="455" cy="230" r="8"/>
+            <text class="sch-label" x="54" y="48">GRID</text><text class="sch-label" x="188" y="126">MDB</text><text class="sch-label" x="320" y="126">ATS</text><text class="sch-label" x="475" y="72">LOAD A</text><text class="sch-label" x="50" y="340">HVAC</text><text class="sch-label" x="485" y="340">MCC</text><text class="sch-label" x="430" y="215">UPS</text>
+          </svg>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b>POWER</b><span>Distribution & panels</span></div>
+          <div class="metric"><b>CONTROL</b><span>Automation & logic</span></div>
+          <div class="metric"><b>SAFETY</b><span>Protection & grounding</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="signal-strip" aria-hidden="true">
+      <div class="signal-track">
+        <span>POWER SYSTEMS</span><span>INDUSTRIAL AUTOMATION</span><span>PROTECTION &amp; GROUNDING</span><span>WORDPRESS CMS</span><span>MULTILINGUAL RTL / LTR</span><span>TECHNICAL SEO</span><span>RESPONSIVE EXPERIENCE</span>
+        <span>POWER SYSTEMS</span><span>INDUSTRIAL AUTOMATION</span><span>PROTECTION &amp; GROUNDING</span><span>WORDPRESS CMS</span><span>MULTILINGUAL RTL / LTR</span><span>TECHNICAL SEO</span><span>RESPONSIVE EXPERIENCE</span>
+      </div>
+    </div>
+
+    <section class="section wrap" id="services">
+      <div class="section-head reveal">
+        <div><div class="kicker">01 / CAPABILITIES</div><h2 data-fa="خدماتی که برای پروژه واقعی طراحی شده‌اند." data-en="Capabilities built for real projects.">خدماتی که برای پروژه واقعی طراحی شده‌اند.</h2></div>
+        <p class="section-desc" data-fa="ساختار سایت طوری طراحی شده که مشتری سریع بفهمد چه کاری انجام می‌دهید، در چه حوزه‌ای تخصص دارید و قدم بعدی برای شروع همکاری چیست." data-en="The structure helps visitors understand what you do, where your expertise fits, and exactly what the next step is.">ساختار سایت طوری طراحی شده که مشتری سریع بفهمد چه کاری انجام می‌دهید، در چه حوزه‌ای تخصص دارید و قدم بعدی برای شروع همکاری چیست.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal"><span class="num">01</span><span class="spark">⌁</span><h3 data-fa="طراحی و محاسبات برق" data-en="Electrical design & calculations">طراحی و محاسبات برق</h3><p data-fa="بار، روشنایی، کابل، حفاظت، نقشه‌ها و مدارک فنی متناسب با نوع پروژه." data-en="Load, lighting, cable, protection, drawings and technical documentation tailored to the project.">بار، روشنایی، کابل، حفاظت، نقشه‌ها و مدارک فنی متناسب با نوع پروژه.</p></article>
+        <article class="service reveal"><span class="num">02</span><span class="spark">ϟ</span><h3 data-fa="تابلو و توزیع" data-en="Panels & distribution">تابلو و توزیع</h3><p data-fa="معماری توزیع، تابلوهای اصلی و فرعی، انتخاب تجهیزات و هماهنگی حفاظت." data-en="Distribution architecture, main/sub panels, equipment selection and protection coordination.">معماری توزیع، تابلوهای اصلی و فرعی، انتخاب تجهیزات و هماهنگی حفاظت.</p></article>
+        <article class="service reveal"><span class="num">03</span><span class="spark">⌘</span><h3 data-fa="کنترل و اتوماسیون" data-en="Control & automation">کنترل و اتوماسیون</h3><p data-fa="منطق کنترل، ابزار دقیق، مانیتورینگ و اتوماسیون برای سیستم‌های صنعتی." data-en="Control logic, instrumentation, monitoring and automation for industrial systems.">منطق کنترل، ابزار دقیق، مانیتورینگ و اتوماسیون برای سیستم‌های صنعتی.</p></article>
+        <article class="service reveal"><span class="num">04</span><span class="spark">⎍</span><h3 data-fa="نظارت و اجرا" data-en="Supervision & execution">نظارت و اجرا</h3><p data-fa="کنترل اجرا، هماهنگی با تیم‌های پروژه و تحویل مطابق نقشه و مشخصات فنی." data-en="Execution control, coordination with project teams and delivery aligned with drawings and specs.">کنترل اجرا، هماهنگی با تیم‌های پروژه و تحویل مطابق نقشه و مشخصات فنی.</p></article>
+        <article class="service reveal"><span class="num">05</span><span class="spark">⏚</span><h3 data-fa="ارت، حفاظت و ایمنی" data-en="Grounding & protection">ارت، حفاظت و ایمنی</h3><p data-fa="راهکارهای اتصال زمین، حفاظت در برابر اضافه‌ولتاژ و طراحی ایمن زیرساخت برق." data-en="Grounding, surge protection and safer electrical infrastructure design.">راهکارهای اتصال زمین، حفاظت در برابر اضافه‌ولتاژ و طراحی ایمن زیرساخت برق.</p></article>
+        <article class="service reveal"><span class="num">06</span><span class="spark">◎</span><h3 data-fa="بهینه‌سازی و بازطراحی" data-en="Optimization & redesign">بهینه‌سازی و بازطراحی</h3><p data-fa="بررسی سیستم موجود و پیشنهاد مسیر ارتقا با تمرکز بر قابلیت اطمینان و نگهداری." data-en="Assessment of existing systems and upgrade paths focused on reliability and maintainability.">بررسی سیستم موجود و پیشنهاد مسیر ارتقا با تمرکز بر قابلیت اطمینان و نگهداری.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap section-head reveal">
+        <div><div class="kicker">02 / PROJECT FLOW</div><h2 data-fa="یک مسیر شفاف، از نیاز تا تحویل." data-en="A clear path from requirement to delivery.">یک مسیر شفاف، از نیاز تا تحویل.</h2></div>
+        <p class="section-desc" data-fa="در یک سایت خدمات فنی، اعتماد فقط با ظاهر ساخته نمی‌شود. نمایش فرآیند کار باعث می‌شود مشتری بداند پروژه چطور جلو می‌رود." data-en="For technical services, trust is not only visual. A visible process helps clients understand how the work moves forward.">در یک سایت خدمات فنی، اعتماد فقط با ظاهر ساخته نمی‌شود. نمایش فرآیند کار باعث می‌شود مشتری بداند پروژه چطور جلو می‌رود.</p>
+      </div>
+      <div class="wrap process reveal">
+        <div class="step"><span class="n">01 / ANALYZE</span><h3 data-fa="تحلیل نیاز" data-en="Requirements">تحلیل نیاز</h3><p data-fa="جمع‌آوری اطلاعات پروژه، محدودیت‌ها، ظرفیت‌ها و اولویت‌های اجرایی." data-en="Collect project inputs, constraints, capacities and execution priorities.">جمع‌آوری اطلاعات پروژه، محدودیت‌ها، ظرفیت‌ها و اولویت‌های اجرایی.</p></div>
+        <div class="step"><span class="n">02 / ENGINEER</span><h3 data-fa="طراحی مهندسی" data-en="Engineering">طراحی مهندسی</h3><p data-fa="انتخاب معماری، محاسبات، نقشه‌ها و مستندات فنی قابل پیگیری." data-en="Architecture selection, calculations, drawings and traceable documentation.">انتخاب معماری، محاسبات، نقشه‌ها و مستندات فنی قابل پیگیری.</p></div>
+        <div class="step"><span class="n">03 / EXECUTE</span><h3 data-fa="اجرا و هماهنگی" data-en="Execution">اجرا و هماهنگی</h3><p data-fa="همراهی با تیم اجرا، پاسخ به ابهام‌ها و کنترل انطباق با طراحی." data-en="Support the execution team, resolve questions and verify design alignment.">همراهی با تیم اجرا، پاسخ به ابهام‌ها و کنترل انطباق با طراحی.</p></div>
+        <div class="step"><span class="n">04 / HANDOVER</span><h3 data-fa="تست و تحویل" data-en="Handover">تست و تحویل</h3><p data-fa="بررسی نهایی، مستندسازی تغییرات و تحویل ساختاریافته پروژه." data-en="Final review, change documentation and structured project handover.">بررسی نهایی، مستندسازی تغییرات و تحویل ساختاریافته پروژه.</p></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="industries">
+      <div class="section-head reveal">
+        <div><div class="kicker">03 / APPLICATIONS</div><h2 data-fa="برای ساختمان، صنعت و زیرساخت." data-en="For buildings, industry and infrastructure.">برای ساختمان، صنعت و زیرساخت.</h2></div>
+        <p class="section-desc" data-fa="این بخش به‌راحتی می‌تواند بعداً با نمونه‌کارهای واقعی، لوگوی مشتریان، تصاویر پروژه و کیس‌استادی‌ها کامل شود." data-en="This section can later be enriched with real projects, client logos, photography and case studies.">این بخش به‌راحتی می‌تواند بعداً با نمونه‌کارهای واقعی، لوگوی مشتریان، تصاویر پروژه و کیس‌استادی‌ها کامل شود.</p>
+      </div>
+      <div class="industries">
+        <div class="industry-main reveal"><div class="kicker">FEATURED DOMAIN</div><h3 data-fa="زیرساخت برق قابل اتکا برای فضاهایی که توقف در آن‌ها هزینه دارد." data-en="Reliable electrical infrastructure for environments where downtime is expensive.">زیرساخت برق قابل اتکا برای فضاهایی که توقف در آن‌ها هزینه دارد.</h3><p data-fa="از طراحی سیستم توزیع تا کنترل و مانیتورینگ، ساختار سایت می‌تواند تجربه و حوزه تخصص را بدون شلوغی و متن‌های کلیشه‌ای نمایش دهد." data-en="From power distribution to control and monitoring, the website structure presents expertise without clutter or generic copy.">از طراحی سیستم توزیع تا کنترل و مانیتورینگ، ساختار سایت می‌تواند تجربه و حوزه تخصص را بدون شلوغی و متن‌های کلیشه‌ای نمایش دهد.</p><div class="bigcode">400V</div></div>
+        <div class="industry-side">
+          <div class="mini-card reveal"><div><span data-fa="COMMERCIAL" data-en="COMMERCIAL">COMMERCIAL</span><br><b data-fa="ساختمان و مجموعه تجاری" data-en="Commercial buildings">ساختمان و مجموعه تجاری</b></div><span>↗</span></div>
+          <div class="mini-card reveal"><div><span>INDUSTRIAL</span><br><b data-fa="کارخانه و خطوط صنعتی" data-en="Industrial facilities">کارخانه و خطوط صنعتی</b></div><span>↗</span></div>
+          <div class="mini-card reveal"><div><span>INFRASTRUCTURE</span><br><b data-fa="زیرساخت و پروژه‌های خاص" data-en="Infrastructure & special projects">زیرساخت و پروژه‌های خاص</b></div><span>↗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="cms">
+        <div class="reveal">
+          <div class="kicker">04 / CONTENT SYSTEM</div><h2 data-fa="چندزبانه، مدیریت‌پذیر و آماده رشد." data-en="Multilingual, manageable and built to grow.">چندزبانه، مدیریت‌پذیر و آماده رشد.</h2>
+          <p class="section-desc" data-fa="برای نسخه وردپرس، ساختار طوری پیاده‌سازی می‌شود که ویرایش محتوا، انتشار مقاله، ساخت صفحات خدمات و مدیریت زبان‌ها برای مدیر سایت ساده باشد." data-en="In the WordPress version, content editing, publishing articles, creating service pages and managing languages can be handled cleanly by the site owner.">برای نسخه وردپرس، ساختار طوری پیاده‌سازی می‌شود که ویرایش محتوا، انتشار مقاله، ساخت صفحات خدمات و مدیریت زبان‌ها برای مدیر سایت ساده باشد.</p>
+          <div class="featurelist">
+            <div class="feature"><span class="check">✓</span><div><b data-fa="RTL / LTR واقعی" data-en="True RTL / LTR">RTL / LTR واقعی</b><br><small class="section-desc" data-fa="فارسی و انگلیسی با جهت، تایپوگرافی و چیدمان درست." data-en="Persian and English with correct direction, typography and layout.">فارسی و انگلیسی با جهت، تایپوگرافی و چیدمان درست.</small></div></div>
+            <div class="feature"><span class="check">✓</span><div><b data-fa="ساختار مناسب سئو" data-en="SEO-ready structure">ساختار مناسب سئو</b><br><small class="section-desc" data-fa="هدینگ‌ها، صفحات خدمات، بلاگ و ساختار محتوای قابل توسعه." data-en="Headings, service pages, blog and extensible content architecture.">هدینگ‌ها، صفحات خدمات، بلاگ و ساختار محتوای قابل توسعه.</small></div></div>
+            <div class="feature"><span class="check">✓</span><div><b data-fa="مدیریت محتوای ساده" data-en="Simple content management">مدیریت محتوای ساده</b><br><small class="section-desc" data-fa="بدون وابستگی به توسعه‌دهنده برای تغییر متن‌ها و مقالات روزمره." data-en="Routine text and article updates without developer dependency.">بدون وابستگی به توسعه‌دهنده برای تغییر متن‌ها و مقالات روزمره.</small></div></div>
+          </div>
+        </div>
+        <div class="browser reveal" aria-hidden="true"><div class="browser-top"><i></i><i></i><i></i><span style="margin-left:auto;color:var(--muted);font-size:11px">CONTENT / SEO / LANGUAGES</span></div><div class="browser-screen"><div class="side"><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="screen-main"><div class="screen-hero"></div><div class="content-line"></div><div class="content-line"></div><div class="content-line"></div><div class="screen-grid"><div class="screen-box"></div><div class="screen-box"></div><div class="screen-box"></div><div class="screen-box"></div></div></div></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="insights">
+      <div class="section-head reveal"><div><div class="kicker">05 / TECHNICAL INSIGHTS</div><h2 data-fa="بلاگی که فقط برای پر کردن سایت نیست." data-en="A blog that is not just filler.">بلاگی که فقط برای پر کردن سایت نیست.</h2></div><p class="section-desc" data-fa="محتوای فنی می‌تواند هم اعتماد ایجاد کند و هم برای جستجوهای تخصصی ورودی ارگانیک بسازد." data-en="Technical content can build trust while creating organic search entry points for specialized queries.">محتوای فنی می‌تواند هم اعتماد ایجاد کند و هم برای جستجوهای تخصصی ورودی ارگانیک بسازد.</p></div>
+      <div class="blog">
+        <article class="article reveal"><span class="tag">POWER / DESIGN</span><h3 data-fa="چطور ظرفیت مناسب کابل و حفاظت را برای یک پروژه انتخاب کنیم؟" data-en="How should cable capacity and protection be selected for a project?">چطور ظرفیت مناسب کابل و حفاظت را برای یک پروژه انتخاب کنیم؟</h3><p data-fa="یک مقاله ساختاریافته می‌تواند تجربه فنی شرکت را به زبان قابل‌فهم برای مشتری تبدیل کند." data-en="A structured article can translate technical experience into language clients can understand.">یک مقاله ساختاریافته می‌تواند تجربه فنی شرکت را به زبان قابل‌فهم برای مشتری تبدیل کند.</p></article>
+        <article class="article reveal"><span class="tag">AUTOMATION / CONTROL</span><h3 data-fa="اتوماسیون صنعتی کجا واقعاً ارزش ایجاد می‌کند؟" data-en="Where does industrial automation create real value?">اتوماسیون صنعتی کجا واقعاً ارزش ایجاد می‌کند؟</h3><p data-fa="از مانیتورینگ تا کاهش خطای انسانی، محتوا می‌تواند مستقیم به خدمات اصلی متصل شود." data-en="From monitoring to reducing human error, content can connect directly to core services.">از مانیتورینگ تا کاهش خطای انسانی، محتوا می‌تواند مستقیم به خدمات اصلی متصل شود.</p></article>
+        <article class="article reveal"><span class="tag">SAFETY / GROUNDING</span><h3 data-fa="چه زمانی سیستم ارت موجود نیاز به بازبینی دارد؟" data-en="When does an existing grounding system need a review?">چه زمانی سیستم ارت موجود نیاز به بازبینی دارد؟</h3><p data-fa="موضوعات تخصصی، پایه خوبی برای سئو و ساخت اعتبار حرفه‌ای در طول زمان هستند." data-en="Specialized topics create a strong foundation for SEO and long-term professional credibility.">موضوعات تخصصی، پایه خوبی برای سئو و ساخت اعتبار حرفه‌ای در طول زمان هستند.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap contact" id="contact">
+      <div class="contact-box reveal">
+        <div><div class="kicker">START A PROJECT</div><h2 data-fa="پروژه برق دارید؟ از اینجا شروع کنیم." data-en="Have an electrical project? Start here.">پروژه برق دارید؟ از اینجا شروع کنیم.</h2><p data-fa="اطلاعات اولیه را بفرستید تا نوع خدمات موردنیاز، محدوده کار و قدم بعدی مشخص شود." data-en="Send the initial project details so the required service, scope and next step can be clarified.">اطلاعات اولیه را بفرستید تا نوع خدمات موردنیاز، محدوده کار و قدم بعدی مشخص شود.</p></div>
+        <form class="form" onsubmit="event.preventDefault();document.getElementById('sent').textContent=document.documentElement.lang==='fa'?'نمونه فرم — در نسخه نهایی به ایمیل یا CRM متصل می‌شود.':'Demo form — connect it to email or CRM in production.'">
+          <label class="sr-only" for="lead-name" data-fa="نام و نام خانوادگی" data-en="Your name">نام و نام خانوادگی</label>
+          <input class="field" id="lead-name" name="name" autocomplete="name" data-ph-fa="نام و نام خانوادگی" data-ph-en="Your name" placeholder="نام و نام خانوادگی" />
+          <label class="sr-only" for="lead-contact" data-fa="شماره تماس یا ایمیل" data-en="Phone or email">شماره تماس یا ایمیل</label>
+          <input class="field" id="lead-contact" name="contact" autocomplete="email" data-ph-fa="شماره تماس یا ایمیل" data-ph-en="Phone or email" placeholder="شماره تماس یا ایمیل" />
+          <label class="sr-only" for="lead-project" data-fa="توضیحات پروژه" data-en="Project details">توضیحات پروژه</label>
+          <textarea class="field" id="lead-project" name="project" data-ph-fa="چند خط درباره پروژه..." data-ph-en="A few lines about the project..." placeholder="چند خط درباره پروژه..."></textarea>
+          <button class="submit" type="submit" data-fa="ارسال درخواست ↗" data-en="Send request ↗">ارسال درخواست ↗</button>
+          <div class="form-note" id="sent" aria-live="polite" data-fa="این فرم در نسخه نمونه نمایشی است." data-en="This form is illustrative in the concept demo.">این فرم در نسخه نمونه نمایشی است.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footerrow"><span>VOLTARA ENGINEERING / CONCEPT 2026</span><span data-fa="نمونه طراحی مفهومی — نام، اطلاعات و محتوای نهایی با برند واقعی جایگزین می‌شود." data-en="Concept design — brand, information and final content will be replaced with real business data.">نمونه طراحی مفهومی — نام، اطلاعات و محتوای نهایی با برند واقعی جایگزین می‌شود.</span></div></footer>
+  <div class="demo-tag">CONCEPT DEMO · INTERACTIVE · RESPONSIVE</div>
+
+  <script>
+    const root=document.documentElement;
+    const theme=document.getElementById('theme');
+    const lang=document.getElementById('lang');
+    const store={get:key=>{try{return localStorage.getItem(key)}catch{return null}},set:(key,value)=>{try{localStorage.setItem(key,value)}catch{}}};
+    theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';store.set('demo-theme',root.dataset.theme)});
+    const saved=store.get('demo-theme');if(saved)root.dataset.theme=saved;
+
+    function setLang(next){
+      const fa=next==='fa';root.lang=next;root.dir=fa?'rtl':'ltr';lang.textContent=fa?'EN':'فا';
+      document.querySelectorAll('[data-fa][data-en]').forEach(el=>{el.textContent=fa?el.dataset.fa:el.dataset.en});
+      document.querySelectorAll('[data-ph-fa][data-ph-en]').forEach(el=>{el.placeholder=fa?el.dataset.phFa:el.dataset.phEn});
+      store.set('demo-lang',next);
+    }
+    lang.addEventListener('click',()=>setLang(root.lang==='fa'?'en':'fa'));
+    setLang(store.get('demo-lang')||'fa');
+
+    const revealEls=[...document.querySelectorAll('.reveal')];
+    revealEls.forEach(el=>el.classList.add('reveal-ready'));
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.10,rootMargin:'0px 0px -4% 0px'});
+    revealEls.forEach(el=>io.observe(el));
+
+    addEventListener('pointermove',e=>{root.style.setProperty('--mx',e.clientX+'px');root.style.setProperty('--my',e.clientY+'px')},{passive:true});
+  </script>
+</body>
+</html>
